@@ -1,0 +1,34 @@
+/* Estilos para el contenedor de estadísticas */
+.stats-container {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre el contenido */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Estilos para los elementos de estadísticas */
+.stats-item {
+    margin: 10px 0;
+}
+
+/* Contenedor de las imágenes de los logos */
+.logos-container {
+    display: flex;
+    justify-content: flex-end; /* Alinea las imágenes a la derecha */
+    gap: 10px; /* Espaciado entre las imágenes */
+}
+
+/* Estilo para las imágenes redondas */
+.logo-img {
+    width: 50px;  /* Tamaño de la imagen */
+    height: 50px; /* Tamaño de la imagen */
+    border-radius: 50%; /* Hace la imagen redonda */
+    object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+    transition: transform 0.3s ease; /* Transición suave para el efecto */
+}
+
+/* Efecto hover para agrandar las imágenes */
+.logo-img:hover {
+    transform: scale(1.4); /* Agranda la imagen un 40% */
+}
+

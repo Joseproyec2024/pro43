@@ -1,0 +1,94 @@
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial y final */
+    }
+    50% {
+        transform: translateY(-10px); /* Salto hacia arriba */
+    }
+}
+
+.play-again-btn {
+    display: none; /* Oculto por defecto */
+    background: linear-gradient(to right, #22c55e, #3b82f6); /* Gradiente verde a azul */
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: bounce 1.5s infinite; /* Animación de rebote */
+}
+
+.play-again-btn:hover {
+    transform: scale(1.1); /* Efecto de agrandamiento al pasar el cursor */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
+
+.play-again-btn.show {
+    display: inline-block; /* Mostrar cuando sea necesario */
+}
+
+
+.crying-face {
+    position: absolute;
+    font-size: 2rem;
+    animation: fall 2s ease-in-out infinite;
+    left: calc(50% - 1rem); /* Centrar */
+    top: 0;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+
+
+.confetti {
+    position: absolute;
+    width: 15px; /* Mayor tamaño para un efecto más impactante */
+    height: 15px; 
+    background-color: hsl(calc(360 * var(--hue)), 100%, 50%);
+    border-radius: 50%;
+    animation: fall 1.5s linear infinite; /* Tiempo reducido para mayor velocidad */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-150vh) rotate(0deg); /* Comienza más arriba */
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg); /* Caída completa */
+    }
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    .confetti {
+        width: 12px; /* Ajusta el tamaño del confeti en pantallas pequeñas */
+        height: 12px; 
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(-100vh) rotate(0deg); /* Menos altura en móviles */
+        }
+        100% {
+            transform: translateY(100vh) rotate(720deg);
+        }
+    }
+}
+
+
+
+
+
+
+
+

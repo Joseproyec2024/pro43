@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinjanken</title>
+    <link rel="stylesheet" href="redes.css">
+    <link rel="stylesheet" href="perfil/styles/button.css">
+    <link rel="stylesheet" href="perfil/styles/pre_perfil.css">
+    <link rel="stylesheet" href="perfil/styles/premios.css">
+    <link rel="stylesheet" href="perfil/styles/styles.css">
+    <link rel="stylesheet" href="perfil/styles/footer.css">
+    <link rel="stylesheet" href="perfil/styles/card.css">
+    <link rel="stylesheet" href="perfil/styles/cyber.css">
+    <link rel="stylesheet" href="perfil/styles/box.css">
+    <link rel="stylesheet" href="perfil/styles/rule.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="perfil/styles/animacion.css">
+</head>
+<body>
+    <header>
+            <div class="games-grid" id="games-grid">
+                <img src="img/logo-removebg-preview.png" alt="Logo Oficial" class="logo-oficial">
+                <span class="logo-text">CoinJanken</span>
+                </a>
+                <a href="Top/TOP-20.HTML" class="game-button coinjanken">
+                    <div class="game-name">Rankings</div>
+                </a>
+                <a href="Historial/Historial.html" class="game-button coinjanken">   
+                    <div class="game-name">Historial</div>
+                </a> 
+
+                <a href="retiro.html" class="game-button coinjanken">   
+                    <div class="game-name">PREVENTA </div>
+                </a> 
+                <a href="game-history.html" class="game-button coinjanken">   
+                    <div class="game-name">ganadores</div>
+                </a> 
+             </div>
+         </div>
+    </header>
+
+
+
+
+
+
+
+    <img src="img/fondo1.jpeg" alt="" class="background-image">
+    <style>
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+    </style>
+            <img src="img/logo1.png" alt="" class="mi-clase">
+            <div class="button-container">
+                <button class="game-button-">"Elige tu juego favorito" </button>
+            </div>
+
+
+
+
+            <div class="cyber-grid">
+                <div class="hologram-card neon-glitch">
+                    <div class="card-core">
+                        <div class="hologram-front">
+                            <button class="" onclick="location.href='public/gameoficial.html'">
+                                <img class="neon-img" src="img/Rock.jpeg" alt="Piedra">
+                                <div class="image-title neon-text">JANKEN</div>
+                            </button>
+                        </div>
+                        <div class="hologram-back">
+                            <h2 class="hologram-texto">Janken</h2>
+                            <H1 class="hologram-TEX">Victoria Imparable: Si un jugador gana las tres rondas, suma 9 puntos.</H1>             
+                            <span class="play2">Jugar</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+    
+                <div class="hologram-card quantum-pulse">
+                    <div class="card-core">
+                        <div class="hologram-front">
+                            <button class="" onclick="location.href='tic_tac/tic_tac.html'">
+                                <img class="neon-img" src="img/tic-tac-toe.jpeg" alt="Piedra">
+                                <div class="image-title neon-text">Tic Tac Toe</div>
+                            </button>
+                        </div>
+                        <div class="hologram-back">
+                            <h2 class="hologram-texto">Tic Tac Toe</h2>
+                            <H1 class="hologram-TEX">Victoria Imparable: Si un jugador gana las tres rondas, suma 9 puntos.</H1>             
+                            <span class="play2">Jugar</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                
+            
+                <div class="hologram-card matrix-wave">
+                    <div class="card-core">
+                        <div class="hologram-front">
+                            <button class="" onclick="location.href='/public/dama/dama.html'">
+                                <img class="neon-img" src="img/Checkers.jpg" alt="Piedra">
+                                <div class="image-title neon-text">Checkers</div>
+                            </button>
+                        </div>
+                        <div class="hologram-back">
+                            <h2 class="hologram-texto">Matrix Green</h2>
+                            <H1 class="hologram-TEX">Victoria Imparable: Si un jugador gana las tres rondas, suma 9 puntos.</H1>             
+                             <span class="play2">Jugar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+        <button class="menu-button" id="menuButton" aria-label="Toggle menu">
+            <i data-lucide="menu"></i>
+        </button>
+        
+        <aside class="profile-sidebar" id="profileSidebar" aria-hidden="true">
+            <div class="profile-content">
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <div class="profile-image">
+                        <img src="img/perfil.png" alt="Oficial" class="perfil-oficial">
+                    </div>
+                    <h2 class="profile-name">Perfil de Usuario</h2>
+                    <div class="profile-level">
+                    <p><strong>Nombre:</strong> <span id="nombre"></span></p>
+                    </div>
+                  <h1 id="message" class="mensaje-exito"></h1>
+                 <div class="profile-info">
+                    <div class="info-item">
+                        <img src="img/logo-removebg-preview.png" alt="Oficial" class="perfil-oficial1">
+                        <H1 class="balance-text">CJK</H1>
+                        <p><strong></strong> <span id="balance" class="balance-text"></span></p>
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="arrow-down-circle"></i>
+                        <a href="withdrawal/withdrawal.html" class="perfil-oficial">   
+                            <H1 class="balance-text">Deposit</H1>
+                        </a> 
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="arrow-up-circle"></i> 
+                        <a href="withdrawal/withdrawal.html" class="perfil-oficial">   
+                            <H1 class="balance-text">Withdrawals</H1>
+                        </a> 
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="user-plus"></i>
+                        <H1 class="balance-text">Código de Referido</H1>
+                        <p><strong></strong> <span id="referralCode" class="balance-text"></span></p>
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="link"></i>
+                        <H1 class="balance-text">Balance de Referidos</H1>
+                        <p><strong></strong> <span id="referralBalance" class="balance-text"></span></p>
+                    </div>
+                </div>
+                <!-- Gaming Networks -->
+                <div class="gaming-networks">
+                    <h3 class="networks-title">
+                        CONTACTANOS
+                    </h3>
+                    <div class="logos-container">
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <img src="img/redes/facebook.png" alt="Facebook" class="logo-img">
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank">
+                            <img src="img/redes/instagram.png" alt="Instagram" class="logo-img">
+                        </a>
+                        <a href="https://t.me/your_channel" target="_blank">
+                            <img src="img/redes/telegram.png" alt="Telegram" class="logo-img">
+                        </a>
+                        <a href="https://www.tiktok.com/" target="_blank">
+                            <img src="img/redes/tiktok.png" alt="TikTok" class="logo-img">
+                        </a>
+                        <a href="https://x.com/" target="_blank">
+                            <img src="img/redes/twitter.png" alt="X" class="logo-img">
+                        </a> 
+                        </div>
+                     <!-- Logout Button -->
+                     <button class="logout-button">
+                     <span>DISCONNECT</span>
+                </button>
+            </div>
+        </aside>
+
+
+
+
+
+
+
+
+
+        <div class="conte2">
+            <!-- Game Selection Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 p-6 border-b border-blue-500">
+                <button class="neon-button rounded-md active" data-rules="janken">
+                    <span>Reglas Janken</span>
+                </button>
+                <button class="neon-button rounded-md" data-rules="tictactoe">
+                    <span>Reglas Tic Tac Toe</span>
+                </button>
+                <button class="neon-button rounded-md" data-rules="damas">
+                    <span>Reglas Damas</span>
+                </button>
+            </div>
+                <!-- Janken Rules Section -->
+                <div id="janken-rules" class="rules-container mb-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <h2 class="tex_reg">Reglas Janken</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Reglas Básicas -->
+                        <div class="neon-card p-5 rounded-lg">
+                            <h3 class="flex_items">
+                                Mecánica Básica
+                            </h3>
+                            <ul class="space-y-2">
+                                <li>🪨 La Piedra vence a las Tijeras</li>
+                                <li>📄 El Papel vence a la Piedra</li>
+                                <li>✂️ Las Tijeras vencen al Papel</li>
+                            </ul>
+                        </div>
+                        <!-- Reglas de Apuesta -->
+                        <div class="neon-card">
+                            <h3 class="flex_items">
+                                Apuestas Variables
+                            </h3>
+                            <ul class="space-y-2 text-blue-100">
+                                <li>• Elige un monto para apostar.</li>
+                                <li>• Si eliges 100, el monto total apostado será 300, ya que debes elegir tres opciones, y cada una vale 100.</li>
+                                <li>• Los montos pueden ser: $1, $10, $100, $1,000, $10,000, etc.</li>
+                                <li>• Opciones: Cada jugador elige tres opciones (por ejemplo, piedra, piedra o tijera).</li>
+                                <li>• Gana el jugador que gane más enfrentamientos.</li>
+                                <li>• Empate = No se gana ni se pierde monedas.</li>
+                            </ul>
+                        </div>
+                        <!-- Puntuación ranking -->
+                        <div class="neon-card">
+                            <h3 class="flex_items">
+                                Puntuación ranking
+                            </h3>
+                            <ul class="space-y-2 text-blue-100">
+                                <li>• Apertura Ganadora (10 puntos): El jugador gana la primera ronda. Suma 1 punto.</li>
+                                <li>• Racha Prometedora (40 puntos): El jugador gana dos rondas consecutivas (por ejemplo, en un 2-1). Suma 4 puntos.</li>
+                                <li>• Victoria Imparable (100 puntos): El jugador gana las tres rondas (por ejemplo, en un 3-0). Suma 10 puntos.</li>
+                                <li>• Al final de la temporada, se sumarán los puntos para el ranking y los mejores jugadores recibirán premios.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tic Tac Toe Rules Section -->
+                <div id="tictactoe-rules" class="rules-container hidden">
+                    <div class="flex items-center gap-3 mb-6">
+                        <h2 class="tex_reg">Reglas Tic Tac Toe</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Reglas Básicas -->
+                        <div class="neon-card">
+                            <h3 class="flex_items">
+                                Mecánica Básica
+                            </h3>
+                            <ul class="space-y-2 text-blue-100">
+                                <li>• El juego se juega en un tablero de 3x3.</li>
+                                <li>• Dos jugadores eligen entre "X" y "O".</li>
+                                <li>• El objetivo es alinear tres de tus símbolos en fila, columna o diagonal.</li>
+                                <li>• El primer jugador en lograrlo gana la partida.</li>
+                            </ul>
+                        </div>
+                        <!-- Reglas de Apuesta -->
+                        <div class="neon-card">
+                            <h3 class="flex_items">
+                                Apuestas Variables
+                            </h3>
+                            <ul class="space-y-2 text-blue-100">
+                                <li>• Elige un monto para apostar antes de cada ronda.</li>
+                                <li>• Los montos pueden ser: $1, $10, $100, $1,000, $10,000, etc.</li>
+                                <li>• Gana el jugador que gane más enfrentamientos.</li>
+                            </ul>
+                        </div>
+                        <!-- Puntuación ranking -->
+                        <div class="neon-card">
+                            <h3 class="flex_items">
+                                Puntuación ranking
+                            </h3>
+                            <ul class="space-y-2 text-blue-100">
+                                <li>• Racha Prometedora (40 puntos): El jugador gana dos rondas consecutivas (por ejemplo, en un 2-1). Suma 4 puntos.</li>
+                                <li>• Al final de la temporada, se sumarán los puntos para el ranking y los mejores jugadores recibirán premios.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Damas Rules Section -->
+                <div id="damas-rules" class="rules-container hidden">
+                    <div class="flex items-center gap-3 mb-6">
+                        <h2 class="tex_reg">Reglas Damas</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Reglas Básicas -->
+                        <div class="neon-card">
+                            <h3 class="flex_items">
+                                Mecánica Básica
+                            </h3>
+                            <ul class="space-y-2 text-blue-100">
+                                <li>• El juego se juega en un tablero de 8x8.</li>
+                                <li>• Cada jugador comienza con 12 piezas.</li>
+                                <li>• Las piezas se mueven diagonalmente hacia adelante.</li>
+                                <li>• Captura las piezas del oponente saltando sobre ellas.</li>
+                                <li>• Una pieza que alcanza el lado opuesto se corona como "Dama".</li>
+                            </ul>
+                        </div>
+                        <!-- Reglas de Apuesta -->
+                        <div class="neon-card">
+                            <h3 class="flex_items">
+                                Apuestas Variables
+                            </h3>
+                            <ul class="space-y-2 text-blue-100">
+                                <li>• Elige un monto para apostar antes de cada partida.</li>
+                                <li>• Los montos pueden ser: $1, $10, $100, $1,000, $10,000, etc.</li>
+                                <li>• Gana el jugador que capture todas las piezas del oponente o lo deje sin movimientos.</li>
+                            </ul>
+                        </div>
+                        <!-- Puntuación ranking -->
+                        <div class="neon-card">
+                            <h3 class="flex_items">
+                                Puntuación ranking
+                            </h3>
+                            <ul class="space-y-2 text-blue-100">
+                                <li>• Victoria Rápida (50 puntos): Gana la partida en menos de 10 movimientos.</li>
+                                <li>• Estrategia Maestra (30 puntos): Gana la partida capturando más de 5 piezas en un solo movimiento.</li>
+                                <li>• Al final de la temporada, se sumarán los puntos para el ranking y los mejores jugadores recibirán premios.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="ranking" class="tex-box">
+    <div class="texto-box">
+        <h2>Gana Premios Todos los Días 🚀</h2>
+        <p>
+            Participa y gana increíbles premios todos los días, cada semana y cada mes.
+             Cuanto más participes, más oportunidades tendrás de ganar. ¡No te lo pierdas!"
+        </p>
+    </div>
+</section>
+
+
+<div class="contenedor-principal">   
+    <section class="seccion-info">
+        <div class="contenedor-cartas">
+            <div class="carta" data-opcion="papel">
+                <div class="carta-inner">
+                    <div class="carta-frontal">
+                        <img src="img/Flux_Dev_A_vibrant_and_colorful_illustration_depicting_a_conte_0.jpeg" alt="Imagen frontal">
+                    </div>
+                    <div class="carta-trasera">
+                        <img class="imagen-opcion" src="img/Flux_Dev_A_vibrant_futuristic_illustration_of_a_starfish_Estre_3.jpeg" alt="Papel" data-opcion="papel">
+                        <span class="texto-opcion">Premio mensuales</span>
+                    </div>
+                </div>
+            </div>
+            <div class="carta" data-opcion="tijera">
+                <div class="carta-inner">
+                    <div class="carta-frontal">
+                        <img src="img/Flux_Dev_A_vibrant_and_colorful_illustration_depicting_a_conte_0.jpeg" alt="Imagen frontal">
+                    </div>
+                    <div class="carta-trasera">
+                        <img class="imagen-opcion" src="img/Flux_Dev_a_mesmerizing_3D_render_of_Premios_Diarios_a_lavishly_0.jpeg" alt="Tijera" data-opcion="tijera">
+                        <span class="texto-opcion">Premio semanal</span>
+                    </div>
+                </div>
+            </div>
+            <div class="carta" data-opcion="piedra">
+                <div class="carta-inner">
+                    <div class="carta-frontal">
+                        <img src="img/Flux_Dev_A_vibrant_and_colorful_illustration_depicting_a_conte_0.jpeg" alt="Imagen frontal">
+                    </div>
+                    <div class="carta-trasera">
+                        <img class="imagen-opcion" src="img/Flux_Dev_A_vibrant_solo_illustration_of_a_bright_yellow_starfi_1.jpeg" alt="Piedra" data-opcion="piedra">
+                        <span class="texto-opcion">Premio diario</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="card card-pink">
+        <div class="card-inner">
+            <div class="card-front">
+                  </div>
+                     <div class="card-back">
+                     <h2>Cyber Pink</h2>
+                  Primer Acierto: Si un jugador gana una ronda, suma 1 punto.
+             </div>
+          </div>
+     </div>
+     <div class="card card-blue">
+        <div class="card-inner">
+            <div class="card-front">
+                  </div>
+                     <div class="card-back">
+                     <h2>Electric Blue</h2>
+                     Racha Prometedora: Si un jugador gana dos rondas, suma 4 puntos en total.
+            </div>
+        </div>
+    </div>
+    <div class="card card-green">
+        <div class="card-inner">
+            <div class="card-front">
+                   </div>
+                    <div class="card-back">
+                 <h2>Matrix Green</h2>
+                 Victoria Imparable: Si un jugador gana las tres rondas, suma 9 puntos.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    /* Estilos generales */
+    .game-history-wrapper * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+  
+    .game-history-wrapper {
+      font-family: 'Orbitron', sans-serif;
+      padding: 20px;
+      background: #0f0f1a;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(50, 50, 180, 0.1) 0%, transparent 100%),
+        linear-gradient(135deg, rgba(9, 9, 19, 1) 0%, rgba(26, 26, 46, 1) 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .game-history-container {
+      width: 100%;
+      max-width: 1200px;
+      height: 600px;
+      background: rgba(16, 16, 26, 0.95);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 
+        0 0 20px rgba(77, 240, 255, 0.1),
+        0 0 40px rgba(77, 240, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(77, 240, 255, 0.1);
+    }
+  
+    .game-history-container h1 {
+      text-align: center;
+      color: #4df0ff;
+      font-size: 2rem;
+      margin: 0 0 20px 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 
+        0 0 10px rgba(77, 240, 255, 0.5),
+        0 0 20px rgba(77, 240, 255, 0.3),
+        0 0 30px rgba(77, 240, 255, 0.1);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+  
+    @keyframes glow {
+      from {
+        text-shadow: 
+          0 0 10px rgba(77, 240, 255, 0.5),
+          0 0 20px rgba(77, 240, 255, 0.3),
+          0 0 30px rgba(77, 240, 255, 0.1);
+      }
+      to {
+        text-shadow: 
+          0 0 20px rgba(77, 240, 255, 0.6),
+          0 0 30px rgba(77, 240, 255, 0.4),
+          0 0 40px rgba(77, 240, 255, 0.2);
+      }
+    }
+  
+    .game-history-table-container {
+      height: calc(100% - 60px);
+      overflow-y: auto;
+      border-radius: 10px;
+      position: relative;
+    }
+  
+    /* Estilo para la barra de desplazamiento */
+    .game-history-table-container::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    .game-history-table-container::-webkit-scrollbar-track {
+      background: rgba(77, 240, 255, 0.05);
+      border-radius: 4px;
+    }
+  
+    .game-history-table-container::-webkit-scrollbar-thumb {
+      background: rgba(77, 240, 255, 0.2);
+      border-radius: 4px;
+    }
+  
+    .game-history-table-container::-webkit-scrollbar-thumb:hover {
+      background: rgba(77, 240, 255, 0.3);
+    }
+  
+    .game-history-table-container table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: transparent;
+    }
+  
+    .game-history-table-container thead {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+  
+    .game-history-table-container th, 
+    .game-history-table-container td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid rgba(77, 240, 255, 0.1);
+    }
+  
+    .game-history-table-container th {
+      background: rgba(77, 240, 255, 0.1);
+      color: #4df0ff;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      position: relative;
+    }
+  
+    .game-history-table-container th::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(77, 240, 255, 0.5),
+        transparent
+      );
+    }
+  
+    .game-history-table-container tr:nth-child(even) {
+      background: rgba(77, 240, 255, 0.03);
+    }
+  
+    .game-history-table-container tr:hover {
+      background: rgba(77, 240, 255, 0.05);
+      transform: scale(1.005);
+      transition: all 0.3s ease;
+    }
+  
+    .game-history-table-container .token {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      color: #4df0ff;
+      font-weight: 500;
+      text-shadow: 0 0 10px rgba(77, 240, 255, 0.3);
+    }
+  
+    .game-history-table-container .token img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 5px rgba(77, 240, 255, 0.5));
+    }
+  
+    .game-history-table-container tr td {
+      color: #fff;
+      font-size: 0.95rem;
+    }
+  
+    @media (max-width: 768px) {
+      .game-history-wrapper {
+        padding: 10px;
+      }
+  
+      .game-history-container {
+        height: 500px;
+      }
+      
+      .game-history-table-container table {
+        font-size: 0.8rem;
+      }
+      
+      .game-history-table-container th, 
+      .game-history-table-container td {
+        padding: 12px 8px;
+      }
+      
+      .game-history-container h1 {
+        font-size: 1.5rem;
+      }
+      
+      .game-history-table-container .token img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
+  
+  <div class="game-history-wrapper">
+    <div class="game-history-container">
+      <h1>Historial de Ganadores</h1>
+      <div class="game-history-table-container">
+        <table id="gameHistoryTable">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Juego</th> 
+              <th>Total Apostado</th>
+              <th>Total Ganado</th>
+              <th>Fecha y Hora</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Los datos se insertarán aquí -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    let previousData = []; // Almacena los datos anteriores para comparar
+  
+    async function fetchGameHistory() {
+      try {
+        const response = await fetch('/all-game-history');
+        const data = await response.json();
+  
+        // Ordenar los datos por fecha (más recientes primero)
+        data.sort((a, b) => new Date(b.date) - new Date(a.date));
+  
+        // Limitar a 100 registros
+        if (data.length > 100) {
+          data.splice(100); // Elimina los registros más antiguos
+        }
+  
+        // Comparar con los datos anteriores para evitar actualizaciones innecesarias
+        if (JSON.stringify(data) !== JSON.stringify(previousData)) {
+          previousData = data; // Actualizar los datos anteriores
+  
+          const tableBody = document.querySelector('#gameHistoryTable tbody');
+          tableBody.innerHTML = '';
+  
+          // Insertar los datos en la tabla
+          data.forEach(game => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${game.nombre}</td>
+              <td>${game.gameName}</td>
+              <td><span class="token">${game.totalBet} <img src="/img/logo-removebg-preview.png" alt="Token"></span></td>
+              <td><span class="token">${game.totalWins} <img src="/img/logo-removebg-preview.png" alt="Token"></span></td>
+              <td>${new Date(game.date).toLocaleString()}</td>
+            `;
+            tableBody.appendChild(row);
+          });
+        }
+      } catch (error) {
+        console.error('Error al obtener el historial de juegos:', error);
+      }
+    }
+  
+    // Actualizar el historial cada segundo
+    setInterval(fetchGameHistory, 1000);
+  
+    // Cargar el historial al inicio
+    fetchGameHistory();
+  </script>
+
+
+
+         <footer class="pie-de-pagina">
+            <div class="logos-container">
+                <a href="https://www.facebook.com/profile.php?id=61572573849841" target="_blank">
+              <img src="img/redes/facebook.png" alt="Facebook" class="logo-img">
+              </a>
+           <a href="https://www.instagram.com/coinjanken/" target="_blank">
+                <img src="img/redes/instagram.png" alt="Instagram" class="logo-img">
+                  </a>
+            <a href="https://t.me/your_channel" target="_blank">
+                <img src="img/redes/telegram.png" alt="Telegram" class="logo-img">
+                  </a>
+            <a href="https://www.youtube.com/" target="_blank">
+                <img src="img/redes/youtube.png" alt="YouTube" class="logo-img">
+                  </a>
+            <a href="tiktok.com/@coinjanken" target="_blank">
+                <img src="img/redes/tiktok.png" alt="TikTok" class="logo-img">
+                 </a>
+             <a href="https://x.com/CoinJanken" target="_blank">
+                 <img src="img/redes/twitter.png" alt="X" class="logo-img">
+                    </a> 
+                </div>
+            </div>
+
+         <div class="status-container">
+            <div class="status-dot" id="statusDot"></div>
+            <h1 class="status-dott">Conectados: <span id="userCount">0</span></h1>
+        </div>
+
+
+
+
+         <p>© 2025 [Nombre del desarrollador]. Todos los derechos reservados.</p>
+         <p>Versión 1.0</p>
+
+         </footer>
+
+
+<script>
+    const socket = io();
+</script>
+<script src="perfil/pre_perfil.js"></script>
+<script src="Wallet/metamask.js"></script>
+<script src="perfil/perfil.js"></script>
+<script src="perfil/script.js"></script>
+<script src="perfil/name.js"></script>
+<script type="module" src="perfil/app.js"></script>
+<script src="perfil/animacion.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+</style>
+</body>
+</html>

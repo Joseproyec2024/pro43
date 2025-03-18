@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Gamer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: #0a0a0a;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(50, 11, 103, 0.2) 0%, transparent 80%),
+                linear-gradient(45deg, rgba(8, 2, 30, 0.9) 0%, rgba(2, 8, 25, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                transparent 0%,
+                rgba(0, 255, 255, 0.05) 0.5%,
+                transparent 1%
+            );
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background: rgba(13, 12, 24, 0.95);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(123, 0, 255, 0.3),
+                        0 0 40px rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(123, 0, 255, 0.2);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 20px rgba(123, 0, 255, 0.3),
+                           0 0 40px rgba(0, 255, 255, 0.1);
+            }
+            to {
+                box-shadow: 0 0 25px rgba(123, 0, 255, 0.4),
+                           0 0 50px rgba(0, 255, 255, 0.2);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .icon-container {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, #320b67 0%, #1a0533 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            border: 2px solid rgba(123, 0, 255, 0.5);
+            box-shadow: 0 0 15px rgba(123, 0, 255, 0.3);
+        }
+
+        .title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(123, 0, 255, 0.5);
+        }
+
+        .subtitle {
+            color: #9d71ea;
+            font-size: 0.875rem;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group svg {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #9d71ea;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+            background: rgba(30, 23, 43, 0.8);
+            border: 1px solid rgba(123, 0, 255, 0.3);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #9d71ea;
+            box-shadow: 0 0 15px rgba(123, 0, 255, 0.3);
+            background: rgba(40, 30, 55, 0.8);
+        }
+
+        .form-input::placeholder {
+            color: #6b617c;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+            color: #9d71ea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s;
+        }
+
+        .password-toggle:hover {
+            color: #b794f6;
+        }
+
+        .password-toggle:focus {
+            outline: none;
+            color: #d4bfff;
+        }
+
+        .error-message {
+            color: #ff4e4e;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 78, 78, 0.5);
+            display: none;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #7b00ff 0%, #4800b3 100%);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .submit-button:hover {
+            background: linear-gradient(135deg, #8f1fff 0%, #5c00e6 100%);
+            box-shadow: 0 0 20px rgba(123, 0, 255, 0.4);
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.875rem;
+            color: #9d71ea;
+        }
+
+        .register-link a {
+            color: #b794f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .register-link a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, transparent, #b794f6, transparent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .register-link a:hover {
+            color: #d4bfff;
+        }
+
+        .register-link a:hover::after {
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9d71ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            <h1 class="title">ACCESO</h1>
+            <p class="subtitle">Retorna a la batalla</p>
+        </div>
+
+        <form id="loginForm" onsubmit="event.preventDefault(); handleLogin();">
+            <div id="error-message" class="error-message"></div>
+            
+            <div class="form-group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <input type="email" class="form-input" id="email" placeholder="Correo electrónico" required>
+            </div>
+
+            <div class="form-group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <input type="password" class="form-input" id="password" placeholder="Contraseña secreta" required>
+                <button type="button" class="password-toggle" onclick="togglePassword()" aria-label="Mostrar/ocultar contraseña">
+                    <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </button>
+            </div>
+
+            <button type="submit" class="submit-button">Entrar al Campo</button>
+        </form>
+
+        <p class="register-link">
+            ¿Nuevo guerrero? <a href="register.html">Únete a la batalla</a>
+        </p>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.innerHTML = `
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                `;
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.innerHTML = `
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                `;
+            }
+        }
+
+        function handleLogin() {
+            const errorMessage = document.getElementById('error-message');
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Here you would typically handle the login logic
+            console.log('Login attempt:', { email, password });
+            
+            // Example error handling
+            // errorMessage.textContent = 'Credenciales incorrectas';
+            // errorMessage.classList.add('visible');
+        }
+    </script>
+  
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function (event) {
+  event.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const errorMessage = document.getElementById('error-message');
+
+  const data = { email, password };
+
+  try {
+    const response = await fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      // Guardar el token en localStorage
+      localStorage.setItem('token', result.token);
+
+      // Redirigir al perfil
+      window.location.href = '/perfil.html';
+    } else {
+      // Mostrar mensaje de error
+      errorMessage.textContent = result.error || 'Credenciales incorrectas';
+      errorMessage.style.display = 'block';
+
+      // Limpiar campo de contraseña y enfocarlo
+      document.getElementById('password').value = '';
+      document.getElementById('password').focus();
+    }
+  } catch (error) {
+    errorMessage.textContent = 'Error en la conexión con el servidor';
+    errorMessage.style.display = 'block';
+  }
+});
+  </script>
+</body>
+</html>

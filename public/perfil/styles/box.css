@@ -1,0 +1,64 @@
+/* Center text with more flexibility */
+.tex.box {
+    text-align: center;
+    margin: 0 auto; /* Center the box horizontally */
+    max-width: 100%; /* Ensure it doesn’t overflow the container */
+    color: white;
+}
+
+/* Improved .texto-box styling */
+.texto-box {
+    text-align: center;
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px; /* Add some padding for better spacing */
+    max-width: 80%; /* Limit the width to 80% of the container for a cleaner look */
+    line-height: 1.4; /* Improve text readability */
+    color: #ffffff; /* Set a nice color for the text */
+    font-weight: 600; /* Bold text for emphasis */
+    transition: all 0.3s ease; /* Smooth transition on hover or other interactions */
+}
+
+/* Add a hover effect for a more interactive look */
+.texto-box:hover {
+    color: #1e62ce; /* Change text color on hover */
+    transform: translateY(-5px); /* Slightly lift the box when hovered */
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+    .texto-box {
+        font-size: 24px; /* Make font size smaller on smaller screens */
+
+    }
+}
+/* Initial state: Start from the center of the screen */
+.texto-box {
+    opacity: 0;
+    transform: translateY(50px) scale(0.5); /* Start smaller and below */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Animation when the element enters the viewport */
+.texto-box.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Scale back to normal and slide up */
+}
+
+.info-box {
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+    min-width: 250px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, opacity 1s ease-in-out;
+    opacity: 0;
+    transform: translateY(100px);
+    margin: 0; /* Eliminar cualquier margen entre las cajas */
+}
+

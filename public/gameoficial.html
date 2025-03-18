@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinJanken gamearea</title>
+    <link rel="stylesheet" href="game/styles.css">
+    <link rel="stylesheet" href="redes.css">
+    <link rel="stylesheet" href="game/revancha.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body style="margin: 0; font-family: Arial, sans-serif; 
+background-image: url('img/fondo.jpeg');">
+<style>
+    @media (max-width: 900px) {
+        body {
+            background-image: url('img/Leonardo_Phoenix_10_Ilustracin_de_estilo_anime_de_cuerpo_compl_1\ \(3\).jpg') !important; /* Background image for mobile */
+            background-size: cover !important; /* Ensures the image covers the entire screen */
+            background-position: center top !important; /* Focuses on the top part of the image */
+            background-repeat: no-repeat !important; /* Prevents the image from repeating */
+            margin: 0; /* Removes any margin around the body */
+            
+        }
+    }
+</style>
+</body>
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="bet-options">
+                <p><strong>Nombre:</strong> <span id="nombre"></span></p>
+
+                <button class="bet-btn" data-amount="1">1 CJK</button>
+                <button class="bet-btn" data-amount="10">10 CJK</button>
+                <button class="bet-btn" data-amount="100">100 CJK</button>
+                <button class="bet-btn" data-amount="1000">1000 CJK</button>
+                <button class="bet-btn" data-amount="10000">10000 CJK</button>
+            </div>
+            
+            <!-- Añade un modal para cargar el balance inicial -->
+            <div id="coins">💰 Cargando monedas...</div>
+            <div id="status">Esperando para iniciar...</div>
+
+            
+
+
+              
+            <div id="timer" class="timer" style="display: none;">Tiempo restante: 120s</div>
+            <button id="startGame" class="start-btn">Buscar Partidas</button>
+            <div id="result"></div>
+            <button id="playAgain" class="play-again-btn" style="display: none;">
+                🔄 Solicitar Revancha
+            </button>
+        </div>
+
+
+        <div class="game-area">
+            <div class="round-indicator">
+            </div>
+            <div class="choices">
+                
+                <div class="option-container">
+                    <div class="round">
+                        <img src="img/puño.png" alt="Piedra">
+                    </div>
+                    <button class="option" data-choice="piedra">
+                        <img src="img/piedra.jpg" alt="Piedra">
+                    </button>
+                    <div id="piedraCount" class="piedra">Piedra: 0</div>
+                </div>
+        
+                <div class="option-container">
+                    <div class="round">
+                        <img src="img/papel.png" alt="Papel">
+                    </div>
+                    <button class="option" data-choice="papel">
+                        <img src="img/paper.jpg" alt="Papel">
+                    </button>
+                    <div id="papelCount" class="papel">Papel: 0</div>
+                </div>
+        
+                <div class="option-container">
+                    <div class="round">
+                        <img src="img/tijera.png" alt="Tijera">
+                    </div>
+                    <button class="option" data-choice="tijera">
+                        <img src="img/tijera.jpg" alt="Tijera">
+                    </button>
+                    <div id="tijeraCount" class="tijera">Tijera: 0</div>
+                </div>
+        
+            </div>    
+        </div>
+<script>
+    async function fetchGameHistory() {
+    try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/login.html';
+            return;
+        }
+
+        const response = await fetch('/game-history', {
+            headers: {
+                'Authorization': token
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            displayGameHistory(data.gameHistory);
+        } else {
+            console.error('Error al obtener el historial de juegos');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+function displayGameHistory(history) {
+    const historyContainer = document.getElementById('gameHistory');
+    historyContainer.innerHTML = '';
+
+    history.forEach(game => {
+        const gameElement = document.createElement('div');
+        gameElement.className = 'game-entry';
+        gameElement.innerHTML = `
+            <h3>Partida del ${new Date(game.date).toLocaleDateString()}</h3>
+            <p>Apuesta total: ${game.totalBet} monedas</p>
+            <p>Victorias: ${game.totalWins}</p>
+            <p>Derrotas: ${game.totalLosses}</p>
+            <ul>
+                ${game.rounds.map(round => `
+                    <li>
+                        Ronda ${round.round}: ${round.choice} - ${round.result}
+                    </li>
+                `).join('')}
+            </ul>
+        `;
+        historyContainer.appendChild(gameElement);
+    });
+}
+
+// Llama a la función para obtener el historial al cargar la página
+fetchGameHistory();
+</script>
+        <!-- Sidebar derecha con chat y resultados -->
+        <div class="sidebar-right">
+            <h1 class="vs-tex">Jugador vs. Rival </h1>
+            <div class="chat-container">
+                <h3>Chat</h3>
+                <div class="chat-messages" id="chatMessages"></div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
+                    <button id="sendMessage" class="send-button">Enviar</button>
+                </div>
+            </div>
+            
+            <div class="stats-container">
+                <h3>Estadísticas</h3>
+                <div class="stats-item">Victorias: <span id="gamesWon">0</span></div>
+                <div class="stats-item">Derrotas: <span id="gamesLost">0</span></div>
+                <div class="stats-item">Total apostado: <span id="totalBet">0</span></div>
+                <div class="stats-item">Partidas jugadas: <span id="gamesPlayed">0</span></div>
+            </div>
+ 
+                                <!-- Contenedor de las imágenes -->
+                                <div class="logos-container">
+                                    <a href="https://www.facebook.com/profile.php?id=61572573849841" target="_blank">
+                                  <img src="img/redes/facebook.png" alt="Facebook" class="logo-img">
+                                  </a>
+                               <a href="https://www.instagram.com/coinjanken/" target="_blank">
+                                    <img src="img/redes/instagram.png" alt="Instagram" class="logo-img">
+                                      </a>
+                                <a href="https://t.me/your_channel" target="_blank">
+                                    <img src="img/redes/telegram.png" alt="Telegram" class="logo-img">
+                                      </a>
+                                <a href="https://www.youtube.com/" target="_blank">
+                                    <img src="img/redes/youtube.png" alt="YouTube" class="logo-img">
+                                      </a>
+                                <a href="tiktok.com/@coinjanken" target="_blank">
+                                    <img src="img/redes/tiktok.png" alt="TikTok" class="logo-img">
+                                     </a>
+                                 <a href="https://x.com/CoinJanken" target="_blank">
+                                     <img src="img/redes/twitter.png" alt="X" class="logo-img">
+                                        </a> 
+                                    </div>
+                                </div>
+                             </div>
+                         </div> 
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game/game.js"></script>
+    <script src="game/script.js"></script>
+</body>
+</html>

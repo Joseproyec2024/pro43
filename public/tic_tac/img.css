@@ -1,0 +1,21 @@
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; /* Para que la imagen quede en el fondo */
+}
+
+
+h1 {
+    display: flex;
+    align-items: center;
+}
+
+.logo-oficial {
+    width: 90px; /* Ajusta el tamaño según lo necesario */
+    height: auto;
+}

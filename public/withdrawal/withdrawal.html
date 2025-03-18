@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirar Fondos</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <h1>Retirar Fondos</h1>
+    
+    <div id="balance-info">
+        <p id="balance-total">Total: 0 USDT</p>
+        <p id="balance-retirable">Puedes retirar: 0 USDT</p>
+    </div>
+
+    <div class="form-group">
+        <label for="amount">Cantidad a retirar (USDT):</label>
+        <input type="number" id="amount" step="0.01" min="1" required>
+    </div>
+
+    <div class="form-group">
+        <label for="wallet">Dirección Wallet (CJK):</label>
+        <input type="text" id="wallet" placeholder="Pegar wallet" required>
+        <small>Asegúrate de que la wallet soporte la red BNB Smart Chain (BEP-20)</small>
+    </div>
+
+    <button onclick="solicitarRetiro()">Solicitar Retiro</button>
+
+    <div id="message"></div>
+
+    <h2>Solicitudes Pendientes</h2>
+    <div id="solicitudes-pendientes"></div>
+
+<script src="script.js"></script>
+<script src="wallet.js"></script>
+</body>
+</html>

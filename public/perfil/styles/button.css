@@ -1,0 +1,88 @@
+.games-grid {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.719);
+    position: fixed; /* Fija el contenedor en su lugar */
+    top: 0; /* Puedes ajustar la posición en el eje Y */
+    left: 0; /* Puedes ajustar la posición en el eje X */
+    z-index: 10; /* Asegúrate de que se muestre por encima de otros elementos */
+    overflow: hidden;
+
+}
+
+
+.game-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: clamp(130px, 15vw, 250px); 
+    height: clamp(30px, 5vw, 60px); 
+    border: 3px solid transparent;
+    border-radius: 15px;
+    background: linear-gradient(45deg, rgba(128, 0, 128, 0.8), rgba(0, 0, 0, 0.863));
+    background-size: cover;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 0 5px purple, 0 0 20px purple;
+    font-size: clamp(0.8rem, 1.2vw, 2rem);
+    padding: clamp(1px, 1vw, 5px);  
+    box-sizing: border-box;
+}
+
+.game-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px white, 0 0 40px purple;
+    border-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.game-button- {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: clamp(300px, 50vw, 600px); /* Se ajusta entre 250px y 500px según el ancho de la pantalla */
+    height: clamp(40px, 5vw, 50px); /* Se ajusta entre 40px y 50px según el tamaño de la pantalla */
+    border: 3px solid transparent;
+    border-radius: 15px;
+    background: linear-gradient(45deg, rgba(128, 0, 128, 0.8), rgba(0, 0, 0, 0.8));
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 0 5px purple, 0 0 20px purple;
+    font-size: clamp(200%, 5vw, 250%); /* Ajusta el tamaño del texto de forma dinámica */
+}
+.button-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente si tiene altura definida */
+}
+/* Para pantallas más pequeñas */
+@media (max-width: 1000px) {
+    .game-button- {
+        width: clamp(400px, 50vw, 600px); /* Se ajusta entre 200px y 400px */
+        height: clamp(30px, 5vw, 40px); /* Se ajusta entre 30px y 40px */
+        font-size: clamp(150%, 4vw, 200%); /* Se ajusta el tamaño del texto */
+    }
+}

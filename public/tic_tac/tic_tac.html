@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres en Raya - Multiplayer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="redes.css">
+    <link rel="stylesheet" href="img.css">
+</head>
+<body>
+
+    <img src="imagenes/logo2.jpeg" alt="" class="background-image">
+
+
+<div class="main-container">
+    <div class="game-container">
+
+        <h1>
+            <img src="imagenes/logo-removebg-preview.jpeg" alt="Logo Oficial" class="logo-oficial">
+            TIC TAC TOE 
+        </h1>
+
+        
+
+
+        <div class="balance-display">
+            Balance: <span class="balance-amount">10000</span> monedas
+        </div>
+
+        <div class="game-section">
+            <!-- Game Board -->
+            <div class="game-area">
+                <div class="bet-container">
+                    <h3>Selecciona tu apuesta</h3>
+                    <div class="bet-options">
+                        <div class="bet-option" data-amount="1">1</div>
+                        <div class="bet-option" data-amount="10">10</div>
+                        <div class="bet-option" data-amount="100">100</div>
+                        <div class="bet-option" data-amount="10000">10000</div>
+                    </div>
+                </div>
+                <div class="board">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+                <div class="status">Selecciona una apuesta para empezar.</div>
+                <button class="btn" id="startGameBtn" disabled>Buscar partida</button>
+                </div>
+
+            <!-- Chat Section -->
+            <div class="chat-section">
+                <h3>Chat de juego</h3>
+                <div class="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" placeholder="Escribe un mensaje...">
+                    <button class="btn" id="sendMessageBtn">Enviar</button>
+                </div>
+            </div>
+        </div>
+        <div class="logos-container">
+            <a href="https://www.facebook.com/profile.php?id=61572573849841" target="_blank">
+          <img src="imagenes/redes/facebook.png" alt="Facebook" class="logo-img">
+          </a>
+       <a href="https://www.instagram.com/coinjanken/" target="_blank">
+            <img src="imagenes/redes/instagram.png" alt="Instagram" class="logo-img">
+              </a>
+        <a href="https://t.me/your_channel" target="_blank">
+            <img src="imagenes/redes/telegram.png" alt="Telegram" class="logo-img">
+              </a>
+        <a href="https://www.youtube.com/" target="_blank">
+            <img src="imagenes/redes/youtube.png" alt="YouTube" class="logo-img">
+              </a>
+        <a href="tiktok.com/@coinjanken" target="_blank">
+            <img src="imagenes/redes/tiktok.png" alt="TikTok" class="logo-img">
+             </a>
+         <a href="https://x.com/CoinJanken" target="_blank">
+             <img src="imagenes/redes/twitter.png" alt="X" class="logo-img">
+                </a> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+     <script src="/socket.io/socket.io.js"></script>
+     <script src="tic-tac.js"></script>
+
+
+</body>
+</html>

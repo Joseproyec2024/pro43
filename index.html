@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinJanken</title>
+    <link rel="stylesheet" href="index.css/button.css">
+    <link rel="stylesheet" href="index.css/hero.css">
+    <link rel="stylesheet" href="index.css/styles.css">
+    <link rel="stylesheet" href="index.css/grafico.css">
+    <link rel="stylesheet" href="index.css/redes.css">  
+    <link rel="stylesheet" href="index.css/porcentaje.css"> 
+    <link rel="stylesheet" href="index.css/Roadmap.css">
+    <link rel="stylesheet" href="index.css/wallet.css">
+    <link rel="stylesheet" href="index.css/game-rules.css">
+    <link rel="stylesheet" href="index.css/animacion.css">
+</head>
+
+</body>
+    <header>
+            <div class="games-grid" id="games-grid">
+              <div class="logo">
+                <img src="html/img/logo-removebg-preview.jpeg" alt="Logo Oficial" class="logo-oficial">
+                <span class="logo-text">CoinJanken</span>
+              </div>
+                <a href="public/register.html" class="game-button coinjanken"> 
+                    <div class="game-name">register</div>
+                </a>
+                 <a href="" class="game-button coinjanken">
+                  <div class="game-name">libroblanco</div>
+                 </a>
+                 <button class="btn btn-primary btn-with-icon" onclick="window.location.href='public/login.html'">
+                  Jugar Ahora
+                </button>
+              </div>
+              <img src="html/img/logo1.png" alt="" class="mi-clase">
+                 <div class="simple-container">
+                       <h1>
+                        Contrato  CoinJanken (CJK)
+                       </h1>
+                    <p class="wallet-id" id="contractId">0x8E682d748f5Cc4d86C581C56923bE3D6A13141b1</p>
+                  </div>              
+                  <img src="html/img/fondo1.jpeg" alt="" class="background-image">
+    <!-- Hero Section -->
+    <section class="hero container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Bienvenidos a <span class="text-yellow">CoinJanken</span>
+        </h1>
+        <p class="hero-description">
+          El Futuro del Juego con Criptomonedas. Donde la diversión y la tecnología se unen para brindarte una experiencia de juego segura,
+           emocionante y llena de recompensas.
+        </p>
+        <div class="hero-buttons">
+
+          <a href="/public/register/register.html" class="btn btn-primary btn-with-icon">
+            Comenzar
+            <i data-lucide="arrow-right" class="icon-small"></i>
+          </a>
+          <button class="btn btn-outline">Saber Más</button>
+        </div>
+    </section>
+
+
+  
+<div id="premios" class="carousel">
+  <div class="carousel-images">
+    
+    <div class="carousel-item">
+      <img class="img-paper" src="html/img/tic-tac-toe.jpeg" alt="Imagen 1">
+      <h1 class="carousel-texto">Una Nueva Era del Gaming Descentralizado</h1>
+      <p class="carousel-text2">Nuestra plataforma está diseñada para revolucionar los juegos clásicos mediante la integración de la tecnología blockchain. 
+        Al eliminar intermediarios y garantizar un entorno justo, permitimos que los jugadores disfruten de partidas seguras y transparentes. 
+        Este enfoque innovador no solo mejora la experiencia de juego, sino que también promueve la adopción de criptomonedas en la industria.</p>
+    </div>
+    
+    <div class="carousel-item">
+      <img class="img-paper" src="html/img/Rock.jpeg" alt="Imagen 2">
+      <h1 class="carousel-texto">Competencia y Recompensas </h1>
+      <p class="carousel-text2">Nuestra plataforma no solo ofrece entretenimiento, sino también la posibilidad de ganar recompensas mediante la competencia justa. 
+        Los jugadores pueden apostar criptomonedas en juegos como Piedra, Papel o Tijera (Janken), Tic-Tac-Toe y Damas, con la oportunidad de ampliar aún más el catálogo de juegos. 
+        La combinación de estrategia y recompensas hace que cada partida sea emocionante y desafiante.</p>
+    </div>
+    
+    <div class="carousel-item">
+      <img class="img-paper" src="html/img/Checkers.jpg" alt="Imagen 3">
+      <h1 class="carousel-texto">Seguridad y Transparencia con Tecnología Blockchain</h1>
+      <p class="carousel-text2">La seguridad es una de nuestras prioridades. Gracias a la tecnología blockchain, garantizamos que todas las transacciones sean verificables, 
+        asegurando un ecosistema confiable y transparente para los jugadores. Nuestro objetivo es establecer una comunidad donde la innovación y la confianza sean fundamentales 
+        para el crecimiento del gaming basado en criptomonedas.</p>
+    </div>
+
+  </div>
+</div>
+
+        <button class="prev-button" onclick="prevSlide()">&#10094;</button>
+        <button class="next-button" onclick="nextSlide()">&#10095;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- About AI Section -->
+    <section id="about" class="about container">
+      <img src="html/img/fondo3.jpeg" alt="" class="background-image">
+ 
+      <div class="about-card">
+        <div class="about-content">
+          <div class="about-text">
+            <i data-lucide="zap" class="about-icon"></i>
+            <h2 class="about-title">🤖 Creado con Inteligencia Artificial</h2>
+            <p class="about-description">
+              Este proyecto es una realidad gracias a la increíble revolución de la inteligencia artificial. Antes de embarcarnos en esta aventura, no teníamos conocimientos de programación, pero gracias a herramientas como ChatGPT y la innovación en IA, pudimos dar vida a CoinJanken.
+            </p>
+            <p class="about-description">
+              Un agradecimiento especial a los visionarios que han impulsado la inteligencia artificial, incluyendo a Elon Musk y a todos los desarrolladores que han hecho posible esta tecnología.
+            </p>
+          </div>
+          <img src="html/img/winbig.png" alt="" class="winbig-img">
+        </div>
+        </div>
+      </div>
+    </section>
+
+
+
+<!-- Rules Section -->
+<div class="game-header"></div>
+<div class="game-rules-container">
+    <div class="game-rules-header">
+        <svg xmlns="http://www.w3.org/2000/svg" class="game-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 3h6v11h4l-7 7-7-7h4z"/>
+        </svg>
+        <h2>Acerca de CoinJanken</h2>
+    </div>
+
+    <div class="game-rules-grid">
+        <!-- Quién es CoinJanken -->
+        <div class="game-rule-card">
+            <div class="rule-header">
+                <svg xmlns="http://www.w3.org/2000/svg" class="game-icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.5 17.5L3 6V3h3l11.5 11.5"/>
+                    <path d="M13 19l6-6"/>
+                    <path d="M16 16l4 4"/>
+                    <path d="M19 21l2-2"/>
+                </svg>
+                <h3>¿Quién es CoinJanken?</h3>
+                <svg class="toggle-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </div>
+            <div class="rule-content">
+                <p>CoinJanken es una innovadora plataforma de juegos en línea basada en criptomonedas, 
+                donde los jugadores pueden disfrutar de una experiencia única en juegos clásicos como Piedra,
+                 Papel y Tijera, Tic-Tac-Toe, Ajedrez, Damas y Dominó. Desde su lanzamiento en 2025, CoinJanken 
+                 se ha destacado por su seguridad, transparencia y el uso de criptomonedas para apostar y ganar premios.
+                  Los jugadores pueden competir entre sí en juegos de habilidad, apostando su token nativo, CoinJanken (CJK).</p>
+            </div>
+        </div>
+
+        <!-- ¿Es seguro jugar en CoinJanken? -->
+        <div class="game-rule-card">
+            <div class="rule-header">
+                <svg xmlns="http://www.w3.org/2000/svg" class="game-icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v12"/>
+                    <path d="M8 12h8"/>
+                </svg>
+                <h3>¿Es seguro jugar en CoinJanken?</h3>
+                <svg class="toggle-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </div>
+            <div class="rule-content">
+                <p>CoinJanken se compromete a ofrecer un entorno seguro y confiable para todos nuestros usuarios.
+                 Nuestra plataforma está diseñada con los más altos estándares de seguridad, utilizando tecnología de
+                  encriptación avanzada para proteger tanto las apuestas como los fondos de nuestros jugadores. Además, 
+                  promovemos el juego responsable mediante herramientas para establecer límites de apuestas y el seguimiento 
+                  de las actividades de los usuarios. Los fondos de los jugadores se gestionan de manera segura, con una billetera
+                   digital integrada para cada usuario, asegurando que sus criptomonedas siempre estén protegidas.</p>
+            </div>
+        </div>
+
+        <!-- Criptomonedas -->
+        <div class="game-rule-card">
+            <div class="rule-header">
+                <svg xmlns="http://www.w3.org/2000/svg" class="game-icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v12"/>
+                    <path d="M8 12h8"/>
+                </svg>
+                <h3>¿Qué criptomonedas puedo usar para jugar en CoinJanken?</h3>
+                <svg class="toggle-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </div>
+            <div class="rule-content">
+                <p>En CoinJanken, solo podrás jugar utilizando nuestro token nativo, CoinJanken (CJK). Este token es esencial para participar en todos los juegos y apuestas dentro de la plataforma.</p>
+                <p>¿Cómo conseguir CoinJanken (CJK)? Puedes obtener nuestro token de las siguientes maneras:</p>
+                <div class="get-token-list">
+                    <p>Comprar CJK a través de nuestra plataforma de intercambio integrada.</p>
+                    <p>Participar en la preventa (presale) de CJK, que se llevará a cabo próximamente.</p>
+                    <p>Intercambiar otras criptomonedas populares como USDT, BNB o BTC por CJK en nuestros socios de intercambio.</p>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- ¿Qué juegos puedo jugar en CoinJanken? -->
+        <div class="game-rule-card">
+            <div class="rule-header">
+                <svg xmlns="http://www.w3.org/2000/svg" class="game-icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v12"/>
+                    <path d="M8 12h8"/>
+                </svg>
+                <h3>¿Qué juegos puedo jugar en CoinJanken?</h3>
+                <svg class="toggle-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </div>
+            <div class="rule-content">
+                <div class="get-token-list">
+                    <p>Piedra, Papel y Tijera</p>
+                    <p>Tres en Raya (Tic-Tac-Toe)</p>
+                    <p>Damas</p>
+                    <p><em>"Próximos juegos a implementar" </em></p>
+                    <p>Dominó</p>
+                    <p>Ajedrez</p>
+                    <p>Dados (juego de dados de casino)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ¿Por qué elegir CoinJanken? -->
+        <div class="game-rule-card">
+            <div class="rule-header">
+                <svg xmlns="http://www.w3.org/2000/svg" class="game-icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                    <path d="M4 22h16"/>
+                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                </svg>
+                <h3>¿Por qué elegir CoinJanken?</h3>
+                <svg class="toggle-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </div>
+            <div class="rule-content">
+                <div class="get-token-list">
+                    <p><strong>Competencia entre jugadores:</strong> ¡Olvídate de los bots! En CoinJanken solo juegas con otros jugadores reales.</p>
+                    <p><strong>Integración de criptomonedas:</strong> Apuesta con las principales criptomonedas y utiliza tu propio token para ganar recompensas y premios exclusivos.</p>
+                    <p><strong>Bonos y recompensas:</strong> Participa en promociones especiales y programas de lealtad, y gana premios únicos a medida que subes de nivel.</p>
+                    <p><strong>Variedad de juegos:</strong> Desde juegos de cartas hasta clásicos de mesa, siempre hay algo para cada tipo de jugador.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+
+
+  
+    <section id="ranking" class="tex-box">
+      <div class="texto-box">
+          <h2>Distribución de Tokens 🚀</h2>
+          <p>
+            En esta sección, te mostramos cómo se distribuirán los 300,000,000,000 tokens de nuestro proyecto. Esta distribución está pensado para garantizar
+             el crecimiento sostenible y el éxito a largo plazo, asignando tokens de manera estratégica entre los creadores, la quema y la circulación en el mercado.
+             Acompáñanos a conocer todos los detalles y cómo cada parte contribuirá al desarrollo de nuestra visión. ¡Vamos a ello! 🚀
+          </p>
+      </div>
+          <div class="chart-container">
+              <svg id="pieChart" viewBox="-200 -200 400 400"></svg>
+              <div id="tooltip" class="tooltip">
+                  <div class="tooltip-title"></div>
+                  <div class="tooltip-description"></div>
+              </div>
+              <div id="legend" class="legend"></div>
+          </div>
+       
+    
+
+
+
+          <div class="hero">
+            <div class="icon-wrapper">
+              <div class="icon-pulse"></div>
+              <h1 class="title">
+                <i data-lucide="" class="icon2"></i> Project Roadmap
+              </h1>
+            </div>
+            <p class="subtitle"></p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-line"></div>
+            <div class="timeline-rocket">
+              <div class="rocket-glow"></div>
+              <i data-lucide="rocket" class="rocket-icon"></i>
+            </div>
+            <div id="timeline-items"></div>
+          </div>
+        </div>
+  
+
+
+
+    <!-- Join Section -->
+    <section id="join" class="join">
+      <div class="container text-center">
+        <h2 class="section-title">💰 Juega, Gana y Disfruta</h2>
+        <p class="join-description">
+          CoinJanken no es solo un juego, es una oportunidad para explorar el potencial de la tecnología blockchain y las criptomonedas. ¡Únete ahora y forma parte de esta revolución del entretenimiento digital! 🎉
+        </p>
+        <button class="btn btn-primary btn-large" onclick="window.location.href='/public/register/register.html'">
+          Únete a la Revolución
+        </button>
+          </div>
+     </section>
+
+
+
+            <div class="card-wrapper">
+                <h2 class="heading-primary">Contract Details</h2>
+                <div class="field-group">
+                    <label class="field-label">Contract ID</label>
+                    <div class="contract-box">
+                        <p class="contract-text" id="contractText">0x8E682d748f5Cc4d86C581C56923bE3D6A13141b1</p>
+                        <button class="action-button" id="actionBtn" title="Copy contract ID">
+                            <svg class="icon-default" id="copySymbol" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                            <svg class="icon-default is-hidden" id="checkSymbol" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="notification" id="notificationBar">
+                    <svg class="notification-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Contract ID copied successfully</span>
+                </div>
+            </div>
+
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+          <div class="container">
+            <h2 class="section-title">Características Principales</h2>
+            <div class="features-grid">
+              <div class="feature-card">
+                <i data-lucide="gamepad-2" class="feature-icon"></i>
+                <h3 class="feature-title">Juegos Emocionantes</h3>
+                <p class="feature-description">Disfruta de una variedad de juegos diseñados para brindarte horas de diversión y oportunidades de ganar criptomonedas.</p>
+              </div>
+              <div class="feature-card">
+                <i data-lucide="shield" class="feature-icon"></i>
+                <h3 class="feature-title">Seguridad Blockchain</h3>
+                <p class="feature-description">Todas las transacciones están protegidas por la tecnología blockchain, garantizando transparencia y seguridad.</p>
+              </div>
+              <div class="feature-card">
+                <i data-lucide="trophy" class="feature-icon"></i>
+                <h3 class="feature-title">Recompensas Reales</h3>
+                <p class="feature-description">Gana criptomonedas reales mientras te diviertes. Convierte tu tiempo de juego en valor tangible.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+         <footer class="pie-de-pagina">
+            <div class="logos-container">
+                <a href="https://www.facebook.com/profile.php?id=61572573849841" target="_blank">
+              <img src="html/img/redes/facebook.png" alt="Facebook" class="logo-img">
+              </a>
+           <a href="https://www.instagram.com/coinjanken/" target="_blank">
+                <img src="html/img/redes/instagram.png" alt="Instagram" class="logo-img">
+                  </a>
+            <a href="https://t.me/your_channel" target="_blank">
+                <img src="html/img/redes/telegram.png" alt="Telegram" class="logo-img">
+                  </a>
+            <a href="https://www.youtube.com/" target="_blank">
+                <img src="html/img/redes/youtube.png" alt="YouTube" class="logo-img">
+                  </a>
+            <a href="tiktok.com/@coinjanken" target="_blank">
+                <img src="html/img/redes/tiktok.png" alt="TikTok" class="logo-img">
+                 </a>
+             <a href="https://x.com/CoinJanken" target="_blank">
+                 <img src="html/img/redes/twitter.png" alt="X" class="logo-img">
+                    </a> 
+                </div>
+            </div>
+
+        <p>© 2025 [Nombre del desarrollador]. Todos los derechos reservados.</p>
+        <p>Versión 1.0</p>
+    </footer>
+    <script src="js/porcentaje.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/Roadmap.js"></script>
+    <script src="js/animacion.js"></script>
+    
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+      * {
+        font-family: 'Montserrat', sans-serif;
+      }
+      </style>
+ 
+</body>
+</html>

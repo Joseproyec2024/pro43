@@ -1,0 +1,82 @@
+/* Custom Styles */
+.hidden {
+    display: none !important;
+}
+
+.neon-border {
+    box-shadow: 0 0 5px #0073e6, 0 0 10px #0073e6, 0 0 15px #0073e6;
+}
+
+.neon-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    overflow: hidden;
+    transition: 0.5s;
+    background: rgba(3, 37, 76, 0.8);
+    box-shadow: 0 0 5px #0073e6, 0 0 15px #0073e6;
+    border: 1px solid #0073e6;
+}
+
+.neon-button:hover {
+    background: #0073e6;
+    box-shadow: 0 0 10px #0073e6, 0 0 30px #0073e6, 0 0 60px #0073e6;
+    transition-delay: 0.1s;
+}
+
+.neon-button:active,
+.neon-button.active {
+    background: #0073e6;
+}
+
+.neon-card {
+    background: rgba(3, 37, 76, 0.8);
+    border: 1px solid #0073e6;
+    box-shadow: 0 0 5px #18a324, 0 0 15px #0073e6;
+}
+
+
+
+.logo-oficial {
+    width: 100%;
+    max-width: 100px; /* Tamaño máximo de la imagen */
+  }
+
+  /* Media Query para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .logo-oficial {
+      width: 70%; /* Reduce el tamaño de la imagen al 80% del contenedor en pantallas pequeñas */
+      max-width: 80px; /* Tamaño máximo para pantallas pequeñas */
+    }
+  }
+
+.perfil-oficial {
+    width: 100px;  /* Ajusta el tamaño según necesites */
+    margin: 0 auto;  /* Centra la imagen */
+    border-radius: 10px;  /* Bordes redondeados */
+    transition: transform 0.3s ease-in-out;
+}
+
+.perfil-oficial:hover {
+    transform: scale(1.1);  /* Efecto de zoom al pasar el mouse */
+}
+
+
+  .perfil-oficial1 {
+    width: 50px;  /* Ajusta el tamaño según necesites */
+    border-radius: 10px;  /* Bordes redondeados */
+    transition: transform 0.3s ease-in-out;
+}
+
+.perfil-oficial1:hover {
+    transform: scale(1.1);  /* Efecto de zoom al pasar el mouse */
+}
+.balance-text {
+    color: white;
+    font-size: 15px;
+}

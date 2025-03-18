@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Rondas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .game-entry {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .game-entry h3 {
+            margin-top: 0;
+            color: #555;
+        }
+        .game-entry p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .game-entry ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .game-entry ul li {
+            padding: 5px 10px;
+            background-color: #eee;
+            margin: 5px 0;
+            border-radius: 3px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Historial de Rondas</h1>
+        <div id="puntosDisplay">
+            Puntos acumulados: <span id="puntos">0</span>
+        </div>
+        <div id="gameHistory">
+            <!-- Aquí se cargarán dinámicamente los resultados de las rondas -->
+        </div>
+    </div>
+
+    <script>
+        // Función para obtener y mostrar el historial de rondas
+        async function fetchGameHistory() {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    window.location.href = '/login.html';
+                    return;
+                }
+
+                const response = await fetch('/game-history', {
+                    headers: {
+                        'Authorization': token
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    displayGameHistory(data.gameHistory);
+                } else {
+                    console.error('Error al obtener el historial de juegos');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+        async function fetchPuntos() {
+    try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/login.html';
+            return;
+        }
+
+        const response = await fetch('/get-puntos', {
+            headers: {
+                'Authorization': token
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            document.getElementById('puntos').textContent = data.puntos;
+        } else {
+            console.error('Error al obtener los puntos');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Llama a la función para obtener los puntos al cargar la página
+fetchPuntos();
+        // Función para mostrar el historial de rondas en el HTML
+        function displayGameHistory(history) {
+            const historyContainer = document.getElementById('gameHistory');
+            historyContainer.innerHTML = '';
+
+            history.forEach(game => {
+                const gameElement = document.createElement('div');
+                gameElement.className = 'game-entry';
+                gameElement.innerHTML = `
+                    <h3>Partida del ${new Date(game.date).toLocaleDateString()}</h3>
+                    <p>Apuesta total: ${game.totalBet} monedas</p>
+                    <p>Victorias: ${game.totalWins}</p>
+                    <p>Derrotas: ${game.totalLosses}</p>
+
+                    <ul>
+                        ${game.rounds.map(round => `
+                            <li>
+                                Ronda ${round.round}: ${round.choice} - ${round.result}
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                historyContainer.appendChild(gameElement);
+            });
+        }
+
+        // Llama a la función para obtener el historial al cargar la página
+        fetchGameHistory();
+    </script>
+
+
+</body>
+</html>

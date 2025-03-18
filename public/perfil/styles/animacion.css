@@ -1,0 +1,36 @@
+
+/*animacion titulo*/
+  @keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.mi-clase.active {
+    animation: aparecer 1s ease-out forwards; /* 'forwards' mantiene el estado final de la animación */
+}
+.mi-clase {
+    width: 50%; /* Reduce el tamaño de la imagen */
+    max-width: 90%; /* Establece un tamaño máximo */
+    display: block; /* Asegura que pueda centrarse */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    opacity: 0; /* Oculta la imagen hasta que entre en pantalla */
+    transform: scale(0);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+
+  }
+  @media (max-width: 768px) {
+    .mi-clase {
+        margin-top: 40%;
+        width: 70%; /* Reduce el tamaño de la imagen */
+        max-width: 90%; /* Establece un tamaño máximo */
+
+
+    }
+  }
